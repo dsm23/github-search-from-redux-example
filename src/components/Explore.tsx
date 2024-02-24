@@ -2,7 +2,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import React, { Component } from "react";
+import { Component } from "react";
 import PropTypes from "prop-types";
 
 const GITHUB_REPO = "https://github.com/reduxjs/redux";
