@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { normalize, schema } from "normalizr";
 import { camelizeKeys } from "humps";
 

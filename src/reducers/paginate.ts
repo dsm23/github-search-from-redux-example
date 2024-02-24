@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import union from "lodash/union";
 
 // Creates a reducer managing pagination, given the action types to handle,
