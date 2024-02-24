@@ -4,6 +4,10 @@
   "version": "0.0.1",
   "type": "module",
   "devDependencies": {
+    "@redux-devtools/core": "^4.0.0",
+    "@redux-devtools/dock-monitor": "^4.0.0",
+    "@redux-devtools/log-monitor": "^5.0.0",
+    "@redux-devtools/slider-monitor": "^5.0.0",
     "@types/react": "^18.2.58",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
@@ -16,9 +20,6 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "prettier": "^3.2.5",
     "prettier-plugin-css-order": "^2.0.1",
-    "redux-devtools": "^3.5.0",
-    "redux-devtools-dock-monitor": "^1.1.3",
-    "redux-devtools-log-monitor": "^1.4.0",
     "redux-logger": "^3.0.6",
     "typescript": "^5.3.3",
     "vite": "^5.1.4"
