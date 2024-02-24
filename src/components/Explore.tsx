@@ -1,65 +1,47 @@
-/* eslint-disable no-undef */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
+import { useId, useState } from "react";
+import type { ChangeEventHandler, FunctionComponent } from "react";
 
-import { Component } from "react";
-import PropTypes from "prop-types";
+type Props = {
+  value: string;
+  onChange: (value: string) => void;
+};
 
 const GITHUB_REPO = "https://github.com/reduxjs/redux";
 
-export default class Explore extends Component {
-  static propTypes = {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
+const Explore: FunctionComponent<Props> = ({ value: prevValue, onChange }) => {
+  const [value, setValue] = useState(prevValue);
+  const id = useId();
+
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+    setValue(event.currentTarget.value);
   };
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.value !== this.props.value) {
-      this.setInputValue(this.props.value);
-    }
-  }
-
-  getInputValue = () => {
-    return this.input.value;
+  const handleSubmit = () => {
+    onChange(value);
   };
 
-  setInputValue = (val) => {
-    // Generally mutating DOM is a bad idea in React components,
-    // but doing this for a single uncontrolled field is less fuss
-    // than making it controlled and maintaining a state for it.
-    this.input.value = val;
-  };
+  return (
+    <div>
+      <search>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor={id}>Type a repo full name or username</label>
+          <input id={id} size={45} value={value} onChange={handleChange} />
+          <button type="submit">Go!</button>
+        </form>
+      </search>
+      <p>
+        Code on{" "}
+        <a href={GITHUB_REPO} target="_blank" rel="noopener noreferrer">
+          Github
+        </a>
+        .
+      </p>
+      <p>
+        Move the DevTools with <kbd>Ctrl</kbd> + <kbd>W</kbd> or hide them with{" "}
+        <kbd>Ctrl</kbd> + <kbd>H</kbd>.
+      </p>
+    </div>
+  );
+};
 
-  handleKeyUp = (e) => {
-    if (e.keyCode === 13) {
-      this.handleGoClick();
-    }
-  };
-
-  handleGoClick = () => {
-    this.props.onChange(this.getInputValue());
-  };
-
-  render() {
-    return (
-      <div>
-        <p>Type a username or repo full name and hit 'Go':</p>
-        <input
-          size="45"
-          ref={(input) => (this.input = input)}
-          defaultValue={this.props.value}
-          onKeyUp={this.handleKeyUp}
-        />
-        <button onClick={this.handleGoClick}>Go!</button>
-        <p>
-          Code on{" "}
-          <a href={GITHUB_REPO} target="_blank" rel="noopener noreferrer">
-            Github
-          </a>
-          .
-        </p>
-        <p>Move the DevTools with Ctrl+W or hide them with Ctrl+H.</p>
-      </div>
-    );
-  }
-}
+export default Explore;
