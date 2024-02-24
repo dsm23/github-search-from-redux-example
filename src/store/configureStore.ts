@@ -1,12 +1,20 @@
-import configureStoreProd from "./configureStore.prod";
-import configureStoreDev from "./configureStore.dev";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import { createLogger } from "redux-logger";
+import api from "../middleware/api";
+import rootReducer from "../reducers";
+import DevTools from "../containers/DevTools";
 
-let configureStore;
+const configureStore = (preloadedState) => {
+  const store = createStore(
+    rootReducer,
+    preloadedState,
+    compose(applyMiddleware(thunk, api, createLogger()), DevTools.instrument()),
+  );
 
-if (import.meta.env.PROD) {
-  configureStore = configureStoreProd;
-} else {
-  configureStore = configureStoreDev;
-}
+  return store;
+};
 
-export { configureStore };
+export default configureStore;
