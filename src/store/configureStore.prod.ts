@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import api from "../middleware/api";

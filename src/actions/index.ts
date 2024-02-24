@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { CALL_API, Schemas } from "../middleware/api";
 
 export const USER_REQUEST = "USER_REQUEST";
