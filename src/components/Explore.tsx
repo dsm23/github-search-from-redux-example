@@ -1,5 +1,6 @@
 import { useId, useState } from "react";
 import type { ChangeEventHandler, FunctionComponent } from "react";
+import Button from "./Button";
 
 type Props = {
   value: string;
@@ -24,9 +25,11 @@ const Explore: FunctionComponent<Props> = ({ value: prevValue, onChange }) => {
     <div>
       <search>
         <form onSubmit={handleSubmit}>
-          <label htmlFor={id}>Type a repo full name or username</label>
+          <label htmlFor={id} className="block">
+            Type a repo full name or username
+          </label>
           <input id={id} size={45} value={value} onChange={handleChange} />
-          <button type="submit">Go!</button>
+          <Button type="submit">Search</Button>
         </form>
       </search>
       <p>
