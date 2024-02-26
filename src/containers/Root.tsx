@@ -10,7 +10,7 @@ import RepoPage from "./RepoPage";
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <main className="container mx-auto">
+    <main className="container mx-auto mt-8">
       <Route path="/" component={App} />
       <Route path="/:login/:name" component={RepoPage} />
       <Route path="/:login" component={UserPage} />
