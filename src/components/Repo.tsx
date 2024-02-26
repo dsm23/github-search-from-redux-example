@@ -2,6 +2,7 @@
 // @ts-nocheck
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { linkVariants } from "./Anchor";
 
 const Repo = ({ repo, owner }) => {
   const { login } = owner;
@@ -10,9 +11,13 @@ const Repo = ({ repo, owner }) => {
   return (
     <div className="Repo">
       <h3>
-        <Link to={`/${login}/${name}`}>{name}</Link>
+        <Link to={`/${login}/${name}`} className={linkVariants()}>
+          {name}
+        </Link>
         {" by "}
-        <Link to={`/${login}`}>{login}</Link>
+        <Link to={`/${login}`} className={linkVariants()}>
+          {login}
+        </Link>
       </h3>
       {description && <p>{description}</p>}
     </div>
