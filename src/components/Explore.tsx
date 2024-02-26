@@ -3,13 +3,12 @@ import type { ChangeEventHandler, FunctionComponent } from "react";
 import Button from "./Button";
 import { Label } from "./Label";
 import { Input } from "./Input";
+import Anchor from "./Anchor";
 
 type Props = {
   value: string;
   onChange: (value: string) => void;
 };
-
-const GITHUB_REPO = "https://github.com/reduxjs/redux";
 
 const Explore: FunctionComponent<Props> = ({ value: prevValue, onChange }) => {
   const [value, setValue] = useState(prevValue);
@@ -24,9 +23,9 @@ const Explore: FunctionComponent<Props> = ({ value: prevValue, onChange }) => {
   };
 
   return (
-    <div>
+    <div className="space-y-3">
       <search>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="space-y-4">
           <Label htmlFor={id} className="block">
             Type a repo full name or username
           </Label>
@@ -36,9 +35,25 @@ const Explore: FunctionComponent<Props> = ({ value: prevValue, onChange }) => {
       </search>
       <p>
         Code on{" "}
-        <a href={GITHUB_REPO} target="_blank" rel="noopener noreferrer">
+        <Anchor
+          href="https://github.com/dsm23/github-search-from-redux-example"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Github
-        </a>
+        </Anchor>
+        .
+      </p>
+
+      <p>
+        Cloned from{" "}
+        <Anchor
+          href="https://github.com/reduxjs/redux/tree/master/examples/real-world"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Redux GitHub example
+        </Anchor>
         .
       </p>
       <p>
