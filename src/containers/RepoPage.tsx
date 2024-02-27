@@ -2,77 +2,75 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import { Component } from "react";
-import PropTypes from "prop-types";
+import { useEffect } from "react";
+import type { FunctionComponent } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { loadRepo, loadStargazers } from "../actions";
+import type { Endpoints } from "@octokit/types";
+import {
+  loadRepo as loadRepoAction,
+  loadStargazers as loadStargazersAction,
+} from "../actions";
 import Repo from "../components/Repo";
 import User from "../components/User";
 import List from "../components/List";
 
-const loadData = (props) => {
-  const { fullName } = props;
-  props.loadRepo(fullName, ["description"]);
-  props.loadStargazers(fullName);
+type Props = {
+  repo?: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"];
+  fullName: string;
+  name: string;
+  owner?: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]["owner"];
+  stargazers: Endpoints["GET /repos/{owner}/{repo}/stargazers"]["response"]["data"];
+  stargazersPagination?: unknown;
+  loadRepo: () => void;
+  loadStargazers: () => void;
 };
 
-class RepoPage extends Component {
-  static propTypes = {
-    repo: PropTypes.object,
-    fullName: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    owner: PropTypes.object,
-    stargazers: PropTypes.array.isRequired,
-    stargazersPagination: PropTypes.object,
-    loadRepo: PropTypes.func.isRequired,
-    loadStargazers: PropTypes.func.isRequired,
+const RepoPage: FunctionComponent<Props> = ({
+  repo,
+  fullName,
+  name,
+  owner,
+  stargazers,
+  stargazersPagination,
+  loadRepo,
+  loadStargazers,
+}) => {
+  useEffect(() => {
+    loadRepo(fullName, ["description"]);
+    loadStargazers(fullName);
+  }, [fullName, loadRepo, loadStargazers]);
+
+  const handleLoadMoreClick = () => {
+    loadStargazers(fullName, true);
   };
 
-  componentDidMount() {
-    loadData(this.props);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.fullName !== this.props.fullName) {
-      loadData(this.props);
-    }
-  }
-
-  handleLoadMoreClick = () => {
-    this.props.loadStargazers(this.props.fullName, true);
-  };
-
-  renderUser(user) {
+  const renderUser = (user) => {
     return <User user={user} key={user.login} />;
-  }
+  };
 
-  render() {
-    const { repo, owner, name } = this.props;
-    if (!repo || !owner) {
-      return (
-        <h1>
-          <i>Loading {name} details...</i>
-        </h1>
-      );
-    }
-
-    const { stargazers, stargazersPagination } = this.props;
+  if (!repo || !owner) {
     return (
-      <div>
-        <Repo repo={repo} owner={owner} />
-        <hr />
-        <List
-          renderItem={this.renderUser}
-          items={stargazers}
-          onLoadMoreClick={this.handleLoadMoreClick}
-          loadingLabel={`Loading stargazers of ${name}...`}
-          {...stargazersPagination}
-        />
-      </div>
+      <h1>
+        <i>Loading {name} details...</i>
+      </h1>
     );
   }
-}
+
+  return (
+    <div>
+      <Repo repo={repo} owner={owner} />
+      <hr />
+      <List
+        renderItem={renderUser}
+        items={stargazers}
+        onLoadMoreClick={handleLoadMoreClick}
+        loadingLabel={`Loading stargazers of ${name}...`}
+        {...stargazersPagination}
+      />
+    </div>
+  );
+};
 
 const mapStateToProps = (state, ownProps) => {
   // We need to lower case the login/name due to the way GitHub's API behaves.
@@ -101,7 +99,7 @@ const mapStateToProps = (state, ownProps) => {
 
 export default withRouter(
   connect(mapStateToProps, {
-    loadRepo,
-    loadStargazers,
+    loadRepo: loadRepoAction,
+    loadStargazers: loadStargazersAction,
   })(RepoPage),
 );

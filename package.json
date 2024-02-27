@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "devDependencies": {
+    "@octokit/types": "^12.6.0",
     "@redux-devtools/core": "^4.0.0",
     "@redux-devtools/dock-monitor": "^4.0.0",
     "@redux-devtools/log-monitor": "^5.0.0",
@@ -37,7 +38,6 @@
     "humps": "^2.0.0",
     "lodash": "^4.17.19",
     "normalizr": "^3.6.0",
-    "prop-types": "^15.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^7.2.0",

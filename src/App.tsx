@@ -8,6 +8,8 @@ import configureStore from "./store/configureStore";
 
 const store = configureStore();
 
+export type RootState = ReturnType<typeof store.getState>;
+
 const App: FunctionComponent = () => (
   <Router>
     <CompatRouter>

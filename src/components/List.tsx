@@ -1,28 +1,32 @@
-/* eslint-disable no-undef */
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
+import type { FunctionComponent } from "react";
+import type { Endpoints } from "@octokit/types";
 
-import { Component } from "react";
-import PropTypes from "prop-types";
+type Props = {
+  loadingLabel: string;
+  pageCount?: number;
+  renderItem: ([repo, owner]: [
+    Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"],
+    Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]["owner"],
+  ]) => JSX.Element[];
+  items: [
+    Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"],
+    Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]["owner"],
+  ][];
+  isFetching: boolean;
+  onLoadMoreClick: () => void;
+  nextPageUrl: string;
+};
 
-export default class List extends Component {
-  static propTypes = {
-    loadingLabel: PropTypes.string.isRequired,
-    pageCount: PropTypes.number,
-    renderItem: PropTypes.func.isRequired,
-    items: PropTypes.array.isRequired,
-    isFetching: PropTypes.bool.isRequired,
-    onLoadMoreClick: PropTypes.func.isRequired,
-    nextPageUrl: PropTypes.string,
-  };
-
-  static defaultProps = {
-    isFetching: true,
-    loadingLabel: "Loading...",
-  };
-
-  renderLoadMore() {
-    const { isFetching, onLoadMoreClick } = this.props;
+const List: FunctionComponent<Props> = ({
+  isFetching = true,
+  items,
+  loadingLabel = "Loading...",
+  nextPageUrl,
+  pageCount,
+  renderItem,
+  onLoadMoreClick,
+}) => {
+  const renderLoadMore = () => {
     return (
       <button
         style={{ fontSize: "150%" }}
@@ -32,41 +36,32 @@ export default class List extends Component {
         {isFetching ? "Loading..." : "Load More"}
       </button>
     );
-  }
+  };
 
-  render() {
-    const {
-      isFetching,
-      nextPageUrl,
-      pageCount,
-      items,
-      renderItem,
-      loadingLabel,
-    } = this.props;
-
-    const isEmpty = items.length === 0;
-    if (isEmpty && isFetching) {
-      return (
-        <h2>
-          <i>{loadingLabel}</i>
-        </h2>
-      );
-    }
-
-    const isLastPage = !nextPageUrl;
-    if (isEmpty && isLastPage) {
-      return (
-        <h1>
-          <i>Nothing here!</i>
-        </h1>
-      );
-    }
-
+  const isEmpty = items.length === 0;
+  if (isEmpty && isFetching) {
     return (
-      <div>
-        {items.map(renderItem)}
-        {pageCount > 0 && !isLastPage && this.renderLoadMore()}
-      </div>
+      <h2>
+        <i>{loadingLabel}</i>
+      </h2>
     );
   }
-}
+
+  const isLastPage = !nextPageUrl;
+  if (isEmpty && isLastPage) {
+    return (
+      <h1>
+        <i>Nothing here!</i>
+      </h1>
+    );
+  }
+
+  return (
+    <div>
+      {items.map(renderItem)}
+      {pageCount && pageCount > 0 && !isLastPage && renderLoadMore()}
+    </div>
+  );
+};
+
+export default List;
