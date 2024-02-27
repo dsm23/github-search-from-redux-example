@@ -2,79 +2,80 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
-import { Component } from "react";
-import PropTypes from "prop-types";
+import { useEffect } from "react";
+import type { FunctionComponent } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { loadUser, loadStarred } from "../actions";
+import type { Endpoints } from "@octokit/types";
+import {
+  loadUser as loadUserAction,
+  loadStarred as loadStarredAction,
+} from "../actions";
 import User from "../components/User";
 import Repo from "../components/Repo";
 import List from "../components/List";
 import zip from "lodash/zip";
 
-const loadData = ({ login, loadUser, loadStarred }) => {
-  loadUser(login, ["name"]);
-  loadStarred(login);
+type Props = {
+  login: string;
+  user?: Endpoints["GET /users/{username}"]["response"]["data"];
+  starredPagination?: Endpoints["GET /users/{username}/starred"]["response"]["data"];
+  starredRepos: Endpoints["GET /users/{username}/starred"]["response"]["data"];
+  starredRepoOwners: unknown[];
+  loadUser: () => void;
+  loadStarred: () => void;
 };
 
-class UserPage extends Component {
-  static propTypes = {
-    login: PropTypes.string.isRequired,
-    user: PropTypes.object,
-    starredPagination: PropTypes.object,
-    starredRepos: PropTypes.array.isRequired,
-    starredRepoOwners: PropTypes.array.isRequired,
-    loadUser: PropTypes.func.isRequired,
-    loadStarred: PropTypes.func.isRequired,
+const UserPage: FunctionComponent<Props> = ({
+  login,
+  user,
+  starredPagination,
+  starredRepos,
+  starredRepoOwners,
+  loadUser,
+  loadStarred,
+}) => {
+  useEffect(() => {
+    loadUser(login, ["name"]);
+    loadStarred(login);
+  }, [login, loadUser, loadStarred]);
+
+  const handleLoadMoreClick = () => {
+    loadStarred(login, true);
   };
 
-  componentDidMount() {
-    loadData(this.props);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.login !== this.props.login) {
-      loadData(this.props);
-    }
-  }
-
-  handleLoadMoreClick = () => {
-    this.props.loadStarred(this.props.login, true);
-  };
-
-  renderRepo([repo, owner]) {
+  const renderRepo = ([repo, owner]: [
+    Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"],
+    Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]["owner"],
+  ]) => {
     return <Repo repo={repo} owner={owner} key={repo.fullName} />;
-  }
+  };
 
-  render() {
-    const { user, login } = this.props;
-    if (!user) {
-      return (
-        <h1>
-          <i>
-            Loading {login}
-            {"'s profile..."}
-          </i>
-        </h1>
-      );
-    }
-
-    const { starredRepos, starredRepoOwners, starredPagination } = this.props;
+  if (!user) {
     return (
-      <div>
-        <User user={user} />
-        <hr />
-        <List
-          renderItem={this.renderRepo}
-          items={zip(starredRepos, starredRepoOwners)}
-          onLoadMoreClick={this.handleLoadMoreClick}
-          loadingLabel={`Loading ${login}'s starred...`}
-          {...starredPagination}
-        />
-      </div>
+      <h1>
+        <i>
+          Loading {login}
+          {"'s profile..."}
+        </i>
+      </h1>
     );
   }
-}
+
+  return (
+    <div>
+      <User user={user} />
+      <hr />
+      <List
+        renderItem={renderRepo}
+        items={zip(starredRepos, starredRepoOwners)}
+        onLoadMoreClick={handleLoadMoreClick}
+        loadingLabel={`Loading ${login}'s starred...`}
+        {...starredPagination}
+      />
+    </div>
+  );
+};
 
 const mapStateToProps = (state, ownProps) => {
   // We need to lower case the login due to the way GitHub's API behaves.
@@ -101,7 +102,7 @@ const mapStateToProps = (state, ownProps) => {
 
 export default withRouter(
   connect(mapStateToProps, {
-    loadUser,
-    loadStarred,
+    loadUser: loadUserAction,
+    loadStarred: loadStarredAction,
   })(UserPage),
 );

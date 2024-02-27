@@ -1,9 +1,15 @@
+import type { FunctionComponent } from "react";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-import PropTypes from "prop-types";
+// @ts-expect-error
 import { Link } from "react-router-dom";
+import type { Endpoints } from "@octokit/types";
+import type { KeysToCamelCase } from "~/types";
 
-const User = ({ user }) => {
+type Props = {
+  user: KeysToCamelCase<Endpoints["GET /users/{username}"]["response"]["data"]>;
+};
+
+const User: FunctionComponent<Props> = ({ user }) => {
   const { login, avatarUrl, name } = user;
 
   return (
@@ -16,14 +22,6 @@ const User = ({ user }) => {
       </Link>
     </div>
   );
-};
-
-User.propTypes = {
-  user: PropTypes.shape({
-    login: PropTypes.string.isRequired,
-    avatarUrl: PropTypes.string.isRequired,
-    name: PropTypes.string,
-  }).isRequired,
 };
 
 export default User;

@@ -1,10 +1,17 @@
+import type { FunctionComponent } from "react";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-import PropTypes from "prop-types";
+// @ts-expect-error
 import { Link } from "react-router-dom";
+import type { Endpoints } from "@octokit/types";
+
 import { linkVariants } from "./Anchor";
 
-const Repo = ({ repo, owner }) => {
+type Props = {
+  owner: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]["owner"];
+  repo: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"];
+};
+
+const Repo: FunctionComponent<Props> = ({ repo, owner }) => {
   const { login } = owner;
   const { name, description } = repo;
 
@@ -22,16 +29,6 @@ const Repo = ({ repo, owner }) => {
       {description && <p>{description}</p>}
     </div>
   );
-};
-
-Repo.propTypes = {
-  repo: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string,
-  }).isRequired,
-  owner: PropTypes.shape({
-    login: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default Repo;
