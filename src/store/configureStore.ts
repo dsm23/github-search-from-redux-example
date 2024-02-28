@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import { createStore, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
+import { thunk } from "redux-thunk";
 import { createLogger } from "redux-logger";
 import api from "../middleware/api";
 import rootReducer from "../reducers";

@@ -4,11 +4,7 @@ import type { FunctionComponent } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { CompatRouter } from "react-router-dom-v5-compat";
 import Root from "./containers/Root";
-import configureStore from "./store/configureStore";
-
-const store = configureStore();
-
-export type RootState = ReturnType<typeof store.getState>;
+import { store } from "./app/store";
 
 const App: FunctionComponent = () => (
   <Router>
