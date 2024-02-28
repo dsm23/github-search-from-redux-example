@@ -1,9 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import type { FunctionComponent } from "react";
+import { Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import DevTools from "./DevTools";
-import { Route } from "react-router-dom";
 import App from "./App";
 import UserPage from "./UserPage";
 import RepoPage from "./RepoPage";
@@ -16,9 +16,13 @@ type Props = {
 const Root: FunctionComponent<Props> = ({ store }) => (
   <Provider store={store}>
     <main className="container mx-auto mt-8">
-      <Route path="/" component={App} />
-      <Route path="/:login/:name" component={RepoPage} />
-      <Route path="/:login" component={UserPage} />
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path=":login/:name" element={<RepoPage />} />
+          <Route path=":login" element={<UserPage />} />
+        </Route>
+      </Routes>
+
       <DevTools />
     </main>
   </Provider>

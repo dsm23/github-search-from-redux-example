@@ -1,6 +1,4 @@
 import type { FunctionComponent } from "react";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 import { Link } from "react-router-dom";
 import type { Endpoints } from "@octokit/types";
 
