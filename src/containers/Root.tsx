@@ -1,15 +1,13 @@
-import type { FunctionComponent } from "react";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
+// @ts-nocheck
+import type { FunctionComponent } from "react";
 import { Provider } from "react-redux";
 import DevTools from "./DevTools";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 import { Route } from "react-router-dom";
 import App from "./App";
 import UserPage from "./UserPage";
 import RepoPage from "./RepoPage";
-import type { RootState } from "~/App";
+import type { RootState } from "~/app/store";
 
 type Props = {
   store: RootState;
