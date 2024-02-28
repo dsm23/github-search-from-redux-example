@@ -1,14 +1,36 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import type { FunctionComponent } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import Root from "./containers/Root";
-import { store } from "./app/store";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "~/app/store";
+import DevTools from "~/containers/DevTools";
+import Layout from "~/containers/Layout";
+import RepoPage from "~/containers/RepoPage";
+import UserPage from "~/containers/UserPage";
 
-const App: FunctionComponent = () => (
-  <Router>
-    <Root store={store} />
-  </Router>
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <Provider store={store}>
+        <main className="container mx-auto mt-8">
+          <Layout />,
+          <DevTools />
+        </main>
+      </Provider>
+    ),
+    children: [
+      {
+        path: ":login/:name",
+        element: <RepoPage />,
+      },
+      {
+        path: ":login",
+        element: <UserPage />,
+      },
+    ],
+  },
+]);
+
+const App: FunctionComponent = () => <RouterProvider router={router} />;
 
 export default App;
