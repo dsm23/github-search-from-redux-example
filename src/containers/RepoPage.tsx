@@ -5,7 +5,7 @@
 import { useEffect } from "react";
 import type { FunctionComponent } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import type { Endpoints } from "@octokit/types";
 import {
   loadRepo as loadRepoAction,
@@ -16,26 +16,33 @@ import User from "../components/User";
 import List from "../components/List";
 
 type Props = {
-  repo?: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"];
-  fullName: string;
-  name: string;
-  owner?: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]["owner"];
-  stargazers: Endpoints["GET /repos/{owner}/{repo}/stargazers"]["response"]["data"];
-  stargazersPagination?: unknown;
+  stargazersByRepo: unknown;
+  users: Endpoints["GET /users"]["response"]["data"];
+  repos: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"][];
   loadRepo: () => void;
   loadStargazers: () => void;
 };
 
 const RepoPage: FunctionComponent<Props> = ({
-  repo,
-  fullName,
-  name,
-  owner,
-  stargazers,
-  stargazersPagination,
+  stargazersByRepo,
+  users,
+  repos,
   loadRepo,
   loadStargazers,
 }) => {
+  const params = useParams();
+
+  const login = params.login.toLowerCase();
+  const name = params.name.toLowerCase();
+
+  const fullName = `${login}/${name}`;
+
+  const stargazersPagination = stargazersByRepo[fullName] || { ids: [] };
+  const stargazers = stargazersPagination.ids.map((id) => users[id]);
+
+  const repo = repos[fullName];
+  const owner = users[login];
+
   useEffect(() => {
     loadRepo(fullName, ["description"]);
     loadStargazers(fullName);
@@ -72,34 +79,23 @@ const RepoPage: FunctionComponent<Props> = ({
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   // We need to lower case the login/name due to the way GitHub's API behaves.
   // Have a look at ../middleware/api.js for more details.
-  const login = ownProps.match.params.login.toLowerCase();
-  const name = ownProps.match.params.name.toLowerCase();
 
   const {
     pagination: { stargazersByRepo },
     entities: { users, repos },
   } = state;
 
-  const fullName = `${login}/${name}`;
-  const stargazersPagination = stargazersByRepo[fullName] || { ids: [] };
-  const stargazers = stargazersPagination.ids.map((id) => users[id]);
-
   return {
-    fullName,
-    name,
-    stargazers,
-    stargazersPagination,
-    repo: repos[fullName],
-    owner: users[login],
+    stargazersByRepo,
+    users,
+    repos,
   };
 };
 
-export default withRouter(
-  connect(mapStateToProps, {
-    loadRepo: loadRepoAction,
-    loadStargazers: loadStargazersAction,
-  })(RepoPage),
-);
+export default connect(mapStateToProps, {
+  loadRepo: loadRepoAction,
+  loadStargazers: loadStargazersAction,
+})(RepoPage);

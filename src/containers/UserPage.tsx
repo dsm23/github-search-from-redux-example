@@ -1,11 +1,10 @@
-/* eslint-disable no-undef */
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
 import { useEffect } from "react";
 import type { FunctionComponent } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import type { Endpoints } from "@octokit/types";
 import {
   loadUser as loadUserAction,
@@ -17,24 +16,30 @@ import List from "../components/List";
 import zip from "lodash/zip";
 
 type Props = {
-  login: string;
-  user?: Endpoints["GET /users/{username}"]["response"]["data"];
-  starredPagination?: Endpoints["GET /users/{username}/starred"]["response"]["data"];
-  starredRepos: Endpoints["GET /users/{username}/starred"]["response"]["data"];
-  starredRepoOwners: unknown[];
+  starredByUser: unknown;
+  users: Endpoints["GET /users"]["response"]["data"];
+  repos: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"][];
   loadUser: () => void;
   loadStarred: () => void;
 };
 
 const UserPage: FunctionComponent<Props> = ({
-  login,
-  user,
-  starredPagination,
-  starredRepos,
-  starredRepoOwners,
+  starredByUser,
+  users,
+  repos,
   loadUser,
   loadStarred,
 }) => {
+  const params = useParams();
+
+  const login = params?.login?.toLowerCase();
+
+  const starredPagination = starredByUser[login] || { ids: [] };
+  const starredRepos = starredPagination.ids.map((id) => repos[id]);
+  const starredRepoOwners = starredRepos.map((repo) => users[repo.owner]);
+
+  const user = users[login];
+
   useEffect(() => {
     loadUser(login, ["name"]);
     loadStarred(login);
@@ -77,32 +82,23 @@ const UserPage: FunctionComponent<Props> = ({
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   // We need to lower case the login due to the way GitHub's API behaves.
   // Have a look at ../middleware/api.js for more details.
-  const login = ownProps.match.params.login.toLowerCase();
 
   const {
     pagination: { starredByUser },
     entities: { users, repos },
   } = state;
 
-  const starredPagination = starredByUser[login] || { ids: [] };
-  const starredRepos = starredPagination.ids.map((id) => repos[id]);
-  const starredRepoOwners = starredRepos.map((repo) => users[repo.owner]);
-
   return {
-    login,
-    starredRepos,
-    starredRepoOwners,
-    starredPagination,
-    user: users[login],
+    starredByUser,
+    users,
+    repos,
   };
 };
 
-export default withRouter(
-  connect(mapStateToProps, {
-    loadUser: loadUserAction,
-    loadStarred: loadStarredAction,
-  })(UserPage),
-);
+export default connect(mapStateToProps, {
+  loadUser: loadUserAction,
+  loadStarred: loadStarredAction,
+})(UserPage);
