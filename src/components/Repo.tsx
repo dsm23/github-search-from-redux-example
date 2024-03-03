@@ -1,8 +1,7 @@
 import type { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import type { Endpoints } from "@octokit/types";
-
-import { linkVariants } from "./Anchor";
+import { linkVariants } from "./anchor";
 
 type Props = {
   owner: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]["owner"];

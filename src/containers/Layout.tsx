@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
@@ -13,6 +12,7 @@ type Props = {
   resetErrorMessage: () => void;
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 const App: FunctionComponent<Props> = ({
   errorMessage,
 
@@ -59,6 +59,7 @@ const mapStateToProps = (state) => ({
   errorMessage: state.errorMessage,
 });
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default connect(mapStateToProps, {
   resetErrorMessage,
 })(App);

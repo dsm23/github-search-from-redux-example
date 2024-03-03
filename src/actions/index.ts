@@ -22,7 +22,12 @@ export const loadUser =
   (login, requiredFields = []) =>
   (dispatch, getState) => {
     const user = getState().entities.users[login];
-    if (user && requiredFields.every((key) => user.hasOwnProperty(key))) {
+    if (
+      user &&
+      requiredFields.every((key) =>
+        Object.prototype.hasOwnProperty.call(user, key),
+      )
+    ) {
       return null;
     }
 
@@ -49,7 +54,12 @@ export const loadRepo =
   (fullName, requiredFields = []) =>
   (dispatch, getState) => {
     const repo = getState().entities.repos[fullName];
-    if (repo && requiredFields.every((key) => repo.hasOwnProperty(key))) {
+    if (
+      repo &&
+      requiredFields.every((key) =>
+        Object.prototype.hasOwnProperty.call(repo, key),
+      )
+    ) {
       return null;
     }
 

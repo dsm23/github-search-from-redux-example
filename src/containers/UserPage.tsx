@@ -23,6 +23,7 @@ type Props = {
   loadStarred: () => void;
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 const UserPage: FunctionComponent<Props> = ({
   starredByUser,
   users,
@@ -98,6 +99,7 @@ const mapStateToProps = (state) => {
   };
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default connect(mapStateToProps, {
   loadUser: loadUserAction,
   loadStarred: loadStarredAction,

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 
@@ -23,6 +22,7 @@ type Props = {
   loadStargazers: () => void;
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 const RepoPage: FunctionComponent<Props> = ({
   stargazersByRepo,
   users,
@@ -95,6 +95,7 @@ const mapStateToProps = (state) => {
   };
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default connect(mapStateToProps, {
   loadRepo: loadRepoAction,
   loadStargazers: loadStargazersAction,
