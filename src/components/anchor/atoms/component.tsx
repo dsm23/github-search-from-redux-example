@@ -1,12 +1,9 @@
 import { forwardRef } from "react";
 import type { AnchorHTMLAttributes } from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
+import type { VariantProps } from "class-variance-authority";
+import { linkVariants } from "./variants";
 import { cn } from "~/lib/utils";
-
-export const linkVariants = cva(
-  "text-muted-foreground underline underline-offset-4 hover:text-primary",
-);
 
 export interface ButtonProps
   extends AnchorHTMLAttributes<HTMLAnchorElement>,

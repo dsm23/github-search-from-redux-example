@@ -1,9 +1,9 @@
 import { useId, useState } from "react";
 import type { ChangeEventHandler, FunctionComponent } from "react";
-import Button from "./Button";
+import Anchor from "./anchor";
+import Button from "./button";
 import { Label } from "./Label";
 import { Input } from "./Input";
-import Anchor from "./Anchor";
 
 type Props = {
   value: string;
