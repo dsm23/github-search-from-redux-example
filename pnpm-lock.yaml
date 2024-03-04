@@ -67,6 +67,12 @@ devDependencies:
   '@redux-devtools/slider-monitor':
     specifier: ^5.0.0
     version: 5.0.0(@redux-devtools/core@4.0.0)(@types/react@18.2.58)(@types/styled-components@5.1.34)(react-dom@18.2.0)(react@18.2.0)(redux@5.0.1)(styled-components@5.3.11)
+  '@types/humps':
+    specifier: ^2.0.6
+    version: 2.0.6
+  '@types/lodash':
+    specifier: ^4.14.202
+    version: 4.14.202
   '@types/node':
     specifier: ^20.11.20
     version: 20.11.20
@@ -76,6 +82,9 @@ devDependencies:
   '@types/react-dom':
     specifier: ^18.2.19
     version: 18.2.19
+  '@types/redux-logger':
+    specifier: ^3.0.13
+    version: 3.0.13
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.0.2
     version: 7.0.2(@typescript-eslint/parser@7.0.2)(eslint@8.57.0)(typescript@5.3.3)
@@ -1376,6 +1385,10 @@ packages:
       hoist-non-react-statics: 3.3.2
     dev: true
 
+  /@types/humps@2.0.6:
+    resolution: {integrity: sha512-Fagm1/a/1J9gDKzGdtlPmmTN5eSw/aaTzHtj740oSfo+MODsSY2WglxMmhTdOglC8nxqUhGGQ+5HfVtBvxo3Kg==}
+    dev: true
+
   /@types/json-schema@7.0.15:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
     dev: true
@@ -1425,6 +1438,12 @@ packages:
     resolution: {integrity: sha512-KqiQ2+6VTb1Yn02+ZNQsB0XcoJTu/W4AhnIUaeTnkVFie5YWMoeSpW4IOFYJ2/HJ+wi1kLw+PHDgjZ3t+M6IRw==}
     dependencies:
       '@types/base16': 1.0.5
+    dev: true
+
+  /@types/redux-logger@3.0.13:
+    resolution: {integrity: sha512-jylqZXQfMxahkuPcO8J12AKSSCQngdEWQrw7UiLUJzMBcv1r4Qg77P6mjGLjM27e5gFQDPD8vwUMJ9AyVxFSsg==}
+    dependencies:
+      redux: 5.0.1
     dev: true
 
   /@types/scheduler@0.16.8:
