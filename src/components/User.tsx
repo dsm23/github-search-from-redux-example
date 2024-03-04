@@ -1,10 +1,10 @@
 import type { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
 import type { Endpoints } from "@octokit/types";
-import type { KeysToCamelCase } from "~/types";
+import type { Camelized } from "humps";
 
 type Props = {
-  user: KeysToCamelCase<Endpoints["GET /users/{username}"]["response"]["data"]>;
+  user: Camelized<Endpoints["GET /users/{username}"]["response"]["data"]>;
 };
 
 const User: FunctionComponent<Props> = ({ user }) => {

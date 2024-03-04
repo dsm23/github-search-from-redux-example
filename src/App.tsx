@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: (
       <Provider store={store}>
         <main className="container mx-auto mt-8">
-          <Layout />,
+          <Layout />
           <DevTools />
         </main>
       </Provider>

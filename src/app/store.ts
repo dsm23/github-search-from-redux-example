@@ -1,9 +1,21 @@
+import { configureStore } from "@reduxjs/toolkit";
 import type { Action, ThunkAction } from "@reduxjs/toolkit";
-import configureStore from "../store/configureStore";
+import logger from "redux-logger";
+import api from "~/middleware/api";
+import rootReducer from "~/reducers";
+import DevTools from "~/containers/DevTools";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-export const store = configureStore();
+const store = configureStore({
+  reducer: rootReducer,
+  devTools: false,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api, logger),
+  // enhancers: (getDefaultEnhancers) => getDefaultEnhancers().concat(offline(offlineConfig)),
+  enhancers: (getDefaultEnhancers) =>
+    getDefaultEnhancers().concat(DevTools.instrument()),
+});
+
+export { store };
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
