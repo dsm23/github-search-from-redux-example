@@ -4,16 +4,19 @@
 import { useEffect } from "react";
 import type { FunctionComponent } from "react";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import type { Endpoints } from "@octokit/types";
 import {
   loadUser as loadUserAction,
   loadStarred as loadStarredAction,
 } from "../actions";
+import { buttonVariants } from "~/components/button";
+import GoBack from "~/components/GoBack";
 import User from "../components/User";
 import Repo from "../components/Repo";
 import List from "../components/List";
 import zip from "lodash/zip";
+import { cn } from "~/lib/utils";
 
 type Props = {
   starredByUser: unknown;
@@ -70,6 +73,14 @@ const UserPage: FunctionComponent<Props> = ({
 
   return (
     <div>
+      <Link
+        to="/"
+        className={cn(buttonVariants({ variant: "outline" }), " my-8 gap-x-4")}
+      >
+        <GoBack />
+        Go Back
+      </Link>
+
       <User user={user} />
       <hr />
       <List
