@@ -4,15 +4,18 @@
 import { useEffect } from "react";
 import type { FunctionComponent } from "react";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import type { Endpoints } from "@octokit/types";
 import {
   loadRepo as loadRepoAction,
   loadStargazers as loadStargazersAction,
 } from "../actions";
+import { buttonVariants } from "~/components/button";
+import GoBack from "~/components/GoBack";
 import Repo from "../components/Repo";
 import User from "../components/User";
 import List from "../components/List";
+import { cn } from "~/lib/utils";
 
 type Props = {
   stargazersByRepo: unknown;
@@ -66,6 +69,14 @@ const RepoPage: FunctionComponent<Props> = ({
 
   return (
     <div>
+      <Link
+        to="/"
+        className={cn(buttonVariants({ variant: "outline" }), " my-8 gap-x-4")}
+      >
+        <GoBack />
+        Go Back
+      </Link>
+
       <Repo repo={repo} owner={owner} />
       <hr />
       <List
