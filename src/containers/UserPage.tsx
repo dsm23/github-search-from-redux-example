@@ -10,21 +10,17 @@ import { loadUser, loadStarred } from "../actions";
 import { useAppDispatch, useAppSelector } from "~/app/hooks";
 import { buttonVariants } from "~/components/button";
 import GoBack from "~/components/GoBack";
-import User from "../components/User";
-import Repo from "../components/Repo";
-import List from "../components/List";
+import List from "~/components/List";
+import User from "~/components/User";
+import Repo from "~/components/Repo";
 import { cn } from "~/lib/utils";
 
-// type Props = {
-//   starredByUser: unknown;
-//   users: Endpoints["GET /users"]["response"]["data"];
-//   repos: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"][];
-//   loadUser: () => void;
-//   loadStarred: () => void;
-// };
+type Params = {
+  login: string;
+};
 
 const UserPage: FunctionComponent = () => {
-  const params = useParams();
+  const params = useParams<Params>();
 
   const dispatch = useAppDispatch();
 
