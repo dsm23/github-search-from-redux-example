@@ -3,7 +3,8 @@ import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import api from "~/middleware/api";
 import DevTools from "~/containers/DevTools";
-import { entities, errorMessage, pagination } from "~/reducers";
+import { entities, pagination } from "~/reducers";
+import errorMessage from "~/features/error-message/slice";
 
 const rootReducer = combineReducers({
   entities,

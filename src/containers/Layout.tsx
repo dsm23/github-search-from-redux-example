@@ -4,15 +4,18 @@
 import type { FunctionComponent } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Explore from "../components/Explore";
-import { resetErrorMessage } from "../actions";
 import { useAppDispatch, useAppSelector } from "~/app/hooks";
+import {
+  errorMessageSelector,
+  resetErrorMessage,
+} from "~/features/error-message/slice";
 
 const App: FunctionComponent = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
-  const errorMessage = useAppSelector((state) => state.errorMessage);
+  const errorMessage = useAppSelector(errorMessageSelector);
 
   const inputValue = location.pathname.substring(1);
 
