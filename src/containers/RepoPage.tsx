@@ -3,13 +3,10 @@
 
 import { useEffect } from "react";
 import type { FunctionComponent } from "react";
-import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import type { Endpoints } from "@octokit/types";
-import {
-  loadRepo as loadRepoAction,
-  loadStargazers as loadStargazersAction,
-} from "../actions";
+// import type { Endpoints } from "@octokit/types";
+import { loadRepo, loadStargazers } from "../actions";
+import { useAppDispatch, useAppSelector } from "~/app/hooks";
 import { buttonVariants } from "~/components/button";
 import GoBack from "~/components/GoBack";
 import Repo from "../components/Repo";
@@ -17,23 +14,22 @@ import User from "../components/User";
 import List from "../components/List";
 import { cn } from "~/lib/utils";
 
-type Props = {
-  stargazersByRepo: unknown;
-  users: Endpoints["GET /users"]["response"]["data"];
-  repos: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"][];
-  loadRepo: () => void;
-  loadStargazers: () => void;
-};
+// type Props = {
+// stargazersByRepo: unknown;
+// users: Endpoints["GET /users"]["response"]["data"];
+// repos: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"][];
+// };
 
-// eslint-disable-next-line react-refresh/only-export-components
-const RepoPage: FunctionComponent<Props> = ({
-  stargazersByRepo,
-  users,
-  repos,
-  loadRepo,
-  loadStargazers,
-}) => {
+const RepoPage: FunctionComponent = () => {
   const params = useParams();
+
+  const dispatch = useAppDispatch();
+
+  const repos = useAppSelector((state) => state.entities.repos);
+  const stargazersByRepo = useAppSelector(
+    (state) => state.pagination.stargazersByRepo,
+  );
+  const users = useAppSelector((state) => state.entities.users);
 
   const login = params.login.toLowerCase();
   const name = params.name.toLowerCase();
@@ -47,12 +43,12 @@ const RepoPage: FunctionComponent<Props> = ({
   const owner = users[login];
 
   useEffect(() => {
-    loadRepo(fullName, ["description"]);
-    loadStargazers(fullName);
-  }, [fullName, loadRepo, loadStargazers]);
+    dispatch(loadRepo(fullName, ["description"]));
+    dispatch(loadStargazers(fullName));
+  }, [dispatch, fullName]);
 
   const handleLoadMoreClick = () => {
-    loadStargazers(fullName, true);
+    dispatch(loadStargazers(fullName, true));
   };
 
   const renderUser = (user) => {
@@ -90,24 +86,4 @@ const RepoPage: FunctionComponent<Props> = ({
   );
 };
 
-const mapStateToProps = (state) => {
-  // We need to lower case the login/name due to the way GitHub's API behaves.
-  // Have a look at ../middleware/api.js for more details.
-
-  const {
-    pagination: { stargazersByRepo },
-    entities: { users, repos },
-  } = state;
-
-  return {
-    stargazersByRepo,
-    users,
-    repos,
-  };
-};
-
-// eslint-disable-next-line react-refresh/only-export-components
-export default connect(mapStateToProps, {
-  loadRepo: loadRepoAction,
-  loadStargazers: loadStargazersAction,
-})(RepoPage);
+export default RepoPage;
