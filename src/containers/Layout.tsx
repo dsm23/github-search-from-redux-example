@@ -1,10 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
-import type { FunctionComponent } from "react";
+import type { FunctionComponent, MouseEventHandler } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import Explore from "../components/Explore";
 import { useAppDispatch, useAppSelector } from "~/app/hooks";
+import Explore from "~/components/Explore";
 import {
   errorMessageSelector,
   resetErrorMessage,
@@ -19,12 +16,12 @@ const App: FunctionComponent = () => {
 
   const inputValue = location.pathname.substring(1);
 
-  const handleDismissClick = (e) => {
+  const handleDismissClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     dispatch(resetErrorMessage());
     e.preventDefault();
   };
 
-  const handleChange = (nextValue) => {
+  const handleChange = (nextValue: string) => {
     navigate(`/${nextValue}`);
   };
 
@@ -35,7 +32,7 @@ const App: FunctionComponent = () => {
 
     return (
       <p style={{ backgroundColor: "#e99", padding: 10 }}>
-        <b>{errorMessage}</b>{" "}
+        <b>{errorMessage.toString()}</b>{" "}
         <button onClick={handleDismissClick}>Dismiss</button>
       </p>
     );

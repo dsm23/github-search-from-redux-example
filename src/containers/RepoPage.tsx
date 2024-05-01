@@ -4,24 +4,22 @@
 import { useEffect } from "react";
 import type { FunctionComponent } from "react";
 import { Link, useParams } from "react-router-dom";
-// import type { Endpoints } from "@octokit/types";
 import { loadRepo, loadStargazers } from "../actions";
 import { useAppDispatch, useAppSelector } from "~/app/hooks";
 import { buttonVariants } from "~/components/button";
 import GoBack from "~/components/GoBack";
-import Repo from "../components/Repo";
-import User from "../components/User";
-import List from "../components/List";
+import List from "~/components/List";
+import Repo from "~/components/Repo";
+import User from "~/components/User";
 import { cn } from "~/lib/utils";
 
-// type Props = {
-// stargazersByRepo: unknown;
-// users: Endpoints["GET /users"]["response"]["data"];
-// repos: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"][];
-// };
+type Params = {
+  login: string;
+  name: string;
+};
 
 const RepoPage: FunctionComponent = () => {
-  const params = useParams();
+  const params = useParams<Params>();
 
   const dispatch = useAppDispatch();
 
@@ -31,8 +29,8 @@ const RepoPage: FunctionComponent = () => {
   );
   const users = useAppSelector((state) => state.entities.users);
 
-  const login = params.login.toLowerCase();
-  const name = params.name.toLowerCase();
+  const login = params?.login?.toLowerCase();
+  const name = params?.name?.toLowerCase();
 
   const fullName = `${login}/${name}`;
 
