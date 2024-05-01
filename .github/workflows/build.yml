@@ -9,14 +9,14 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     env:
-      node-version: 21.7.2
+      node-version: 22.0.0
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 9
       - name: Use Node.js ${{ env.node-version }}
         uses: actions/setup-node@v4
         with:
