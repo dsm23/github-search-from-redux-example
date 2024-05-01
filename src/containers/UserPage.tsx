@@ -3,38 +3,36 @@
 
 import { useEffect } from "react";
 import type { FunctionComponent } from "react";
-import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import type { Endpoints } from "@octokit/types";
-import {
-  loadUser as loadUserAction,
-  loadStarred as loadStarredAction,
-} from "../actions";
+import zip from "lodash/zip";
+import { loadUser, loadStarred } from "../actions";
+import { useAppDispatch, useAppSelector } from "~/app/hooks";
 import { buttonVariants } from "~/components/button";
 import GoBack from "~/components/GoBack";
 import User from "../components/User";
 import Repo from "../components/Repo";
 import List from "../components/List";
-import zip from "lodash/zip";
 import { cn } from "~/lib/utils";
 
-type Props = {
-  starredByUser: unknown;
-  users: Endpoints["GET /users"]["response"]["data"];
-  repos: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"][];
-  loadUser: () => void;
-  loadStarred: () => void;
-};
+// type Props = {
+//   starredByUser: unknown;
+//   users: Endpoints["GET /users"]["response"]["data"];
+//   repos: Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"][];
+//   loadUser: () => void;
+//   loadStarred: () => void;
+// };
 
-// eslint-disable-next-line react-refresh/only-export-components
-const UserPage: FunctionComponent<Props> = ({
-  starredByUser,
-  users,
-  repos,
-  loadUser,
-  loadStarred,
-}) => {
+const UserPage: FunctionComponent = () => {
   const params = useParams();
+
+  const dispatch = useAppDispatch();
+
+  const repos = useAppSelector((state) => state.entities.repos);
+  const starredByUser = useAppSelector(
+    (state) => state.pagination.starredByUser,
+  );
+  const users = useAppSelector((state) => state.entities.users);
 
   const login = params?.login?.toLowerCase();
 
@@ -45,12 +43,12 @@ const UserPage: FunctionComponent<Props> = ({
   const user = users[login];
 
   useEffect(() => {
-    loadUser(login, ["name"]);
-    loadStarred(login);
-  }, [login, loadUser, loadStarred]);
+    dispatch(loadUser(login, ["name"]));
+    dispatch(loadStarred(login));
+  }, [dispatch, login]);
 
   const handleLoadMoreClick = () => {
-    loadStarred(login, true);
+    dispatch(loadStarred(login, true));
   };
 
   const renderRepo = ([repo, owner]: [
@@ -94,24 +92,4 @@ const UserPage: FunctionComponent<Props> = ({
   );
 };
 
-const mapStateToProps = (state) => {
-  // We need to lower case the login due to the way GitHub's API behaves.
-  // Have a look at ../middleware/api.js for more details.
-
-  const {
-    pagination: { starredByUser },
-    entities: { users, repos },
-  } = state;
-
-  return {
-    starredByUser,
-    users,
-    repos,
-  };
-};
-
-// eslint-disable-next-line react-refresh/only-export-components
-export default connect(mapStateToProps, {
-  loadUser: loadUserAction,
-  loadStarred: loadStarredAction,
-})(UserPage);
+export default UserPage;

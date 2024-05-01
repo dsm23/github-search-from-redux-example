@@ -1,24 +1,32 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 import api from "~/middleware/api";
-import rootReducer from "~/reducers";
 import DevTools from "~/containers/DevTools";
+import { entities, errorMessage, pagination } from "~/reducers";
 
-const store = configureStore({
-  reducer: rootReducer,
-  devTools: false,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(api, logger),
-  // enhancers: (getDefaultEnhancers) => getDefaultEnhancers().concat(offline(offlineConfig)),
-  enhancers: (getDefaultEnhancers) =>
-    getDefaultEnhancers().concat(DevTools.instrument()),
+const rootReducer = combineReducers({
+  entities,
+  pagination,
+  errorMessage,
 });
 
-export { store };
+export function setupStore(preloadedState?: Partial<RootState>) {
+  return configureStore({
+    reducer: rootReducer,
+    preloadedState,
+    devTools: false,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(api, logger),
+    // enhancers: (getDefaultEnhancers) => getDefaultEnhancers().concat(offline(offlineConfig)),
+    enhancers: (getDefaultEnhancers) =>
+      getDefaultEnhancers().concat(DevTools.instrument()),
+  });
+}
 
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>;
+export type AppDispatch = AppStore["dispatch"];
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
