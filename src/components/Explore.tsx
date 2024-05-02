@@ -1,5 +1,9 @@
 import { useId, useState } from "react";
-import type { ChangeEventHandler, FunctionComponent } from "react";
+import type {
+  ChangeEventHandler,
+  FormEventHandler,
+  FunctionComponent,
+} from "react";
 import Anchor from "./anchor";
 import Button from "./button";
 import { Label } from "./Label";
@@ -18,7 +22,9 @@ const Explore: FunctionComponent<Props> = ({ value: prevValue, onChange }) => {
     setValue(event.currentTarget.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
+
     onChange(value);
   };
 
