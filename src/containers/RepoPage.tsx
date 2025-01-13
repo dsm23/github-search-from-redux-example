@@ -4,7 +4,6 @@
 import { useEffect } from "react";
 import type { FunctionComponent } from "react";
 import { Link, useParams } from "react-router-dom";
-import { loadRepo, loadStargazers } from "../actions";
 import { useAppDispatch, useAppSelector } from "~/app/hooks";
 import { buttonVariants } from "~/components/button";
 import GoBack from "~/components/GoBack";
@@ -12,6 +11,7 @@ import List from "~/components/List";
 import Repo from "~/components/Repo";
 import User from "~/components/User";
 import { cn } from "~/lib/utils";
+import { loadRepo, loadStargazers } from "../actions";
 
 type Params = {
   login: string;
@@ -65,7 +65,7 @@ const RepoPage: FunctionComponent = () => {
     <div>
       <Link
         to="/"
-        className={cn(buttonVariants({ variant: "outline" }), " my-8 gap-x-4")}
+        className={cn(buttonVariants({ variant: "outline" }), "my-8 gap-x-4")}
       >
         <GoBack />
         Go Back

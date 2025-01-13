@@ -1,6 +1,6 @@
 import type { FunctionComponent } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { setupStore } from "~/app/store";
 import DevTools from "~/containers/DevTools";
 import Layout from "~/containers/Layout";

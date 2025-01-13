@@ -2,8 +2,8 @@ import { forwardRef } from "react";
 import type { AnchorHTMLAttributes } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import type { VariantProps } from "class-variance-authority";
-import { linkVariants } from "./variants";
 import { cn } from "~/lib/utils";
+import { linkVariants } from "./variants";
 
 export interface ButtonProps
   extends AnchorHTMLAttributes<HTMLAnchorElement>,
