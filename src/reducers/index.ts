@@ -1,9 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import * as ActionTypes from "../actions";
 import merge from "lodash/merge";
-import paginate from "./paginate";
 import { combineReducers } from "redux";
+import * as ActionTypes from "../actions";
+import paginate from "./paginate";
 
 // Updates an entity cache in response to any action with response.entities.
 export const entities = (state = { users: {}, repos: {} }, action) => {

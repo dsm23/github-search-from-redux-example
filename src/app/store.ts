@@ -1,10 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import logger from "redux-logger";
-import api from "~/middleware/api";
+import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import DevTools from "~/containers/DevTools";
-import { entities, pagination } from "~/reducers";
 import errorMessage from "~/features/error-message/slice";
+import api from "~/middleware/api";
+import { entities, pagination } from "~/reducers";
 
 const rootReducer = combineReducers({
   entities,

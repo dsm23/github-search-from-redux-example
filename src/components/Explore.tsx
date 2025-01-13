@@ -6,8 +6,8 @@ import type {
 } from "react";
 import Anchor from "./anchor";
 import Button from "./button";
-import { Label } from "./Label";
 import { Input } from "./Input";
+import { Label } from "./Label";
 
 type Props = {
   value: string;

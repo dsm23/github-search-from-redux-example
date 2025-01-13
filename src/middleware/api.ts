@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
+import { camelizeKeys } from "humps";
 import { normalize } from "normalizr";
 import type { Schema } from "normalizr";
-import { camelizeKeys } from "humps";
 
 // Extracts the next page URL from Github API response.
 const getNextPageUrl = (response: Response) => {
