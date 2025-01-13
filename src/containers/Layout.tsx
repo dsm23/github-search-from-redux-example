@@ -40,6 +40,7 @@ const App: FunctionComponent = () => {
 
   return (
     <div>
+      <h1 className="sr-only">Real world example</h1>
       <Explore value={inputValue} onChange={handleChange} />
       <hr />
       {renderErrorMessage()}
