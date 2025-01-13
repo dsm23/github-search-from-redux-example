@@ -1,4 +1,4 @@
-name: Build
+name: Format check
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  format:
     runs-on: ubuntu-24.04
     steps:
       - name: Harden Runner
@@ -44,5 +44,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: build check
-        run: pnpm run build
+      - name: Prettier check
+        run: pnpm run fmt.check
