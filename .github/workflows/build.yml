@@ -1,33 +1,57 @@
-name: build
+name: Build
+
 on:
+  push:
+    branches:
+      - main
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
+    branches:
+      - main
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
         with:
-          fetch-depth: 0
+          egress-policy: audit
+
+      - name: Git Checkout
+        uses: actions/checkout@v4
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           run_install: false
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
           cache: "pnpm"
+
+      - uses: actions/cache@v4
+        with:
+          path: node_modules/.vite
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-vite-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-vite-${{ hashFiles('**/pnpm-lock.yaml') }}-
+
       - name: Install dependencies
         run: pnpm install
+
       - name: Prettier check
         run: pnpm run fmt.check
+
       - name: Lint check
         run: pnpm run lint
+
       # - name: Unit tests
       #   run: pnpm run test.unit
+
       - name: build check
         run: pnpm run build
