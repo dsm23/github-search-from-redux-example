@@ -12,7 +12,8 @@ pull_request_rules:
       - check-success=lint
       - check-success~=playwright-tests \(\d, \d\)
       - check-success=pr-title
-      - "#check-success>=18"
+      - check-success=zizmor
+      - "#check-success>=19"
     actions:
       review:
         type: APPROVE
@@ -29,7 +30,8 @@ pull_request_rules:
       - check-success=lint
       - check-success~=playwright-tests \(\d, \d\)
       - check-success=pr-title
-      - "#check-success>=18"
+      - check-success=zizmor
+      - "#check-success>=19"
     actions:
       review:
         type: APPROVE
@@ -46,7 +48,8 @@ pull_request_rules:
       - check-success=lint
       - check-success~=playwright-tests \(\d, \d\)
       - check-success=pr-title
-      - "#check-success>=18"
+      - check-success=zizmor
+      - "#check-success>=19"
       - "#approved-reviews-by>=1"
     actions:
       merge:
