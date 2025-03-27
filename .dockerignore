@@ -1,0 +1,11 @@
+*
+!.husky/
+!public/
+!nginx/
+!src/
+!test-utils/
+!index.html
+!package.json
+!pnpm-lock.yaml
+!tsconfig.*
+!vite.config.ts
