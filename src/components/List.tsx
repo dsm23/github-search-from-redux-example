@@ -1,4 +1,4 @@
-import type { FunctionComponent } from "react";
+import type { FunctionComponent, JSX } from "react";
 import type { Endpoints } from "@octokit/types";
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
   renderItem: ([repo, owner]: [
     Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"],
     Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]["owner"],
-  ]) => JSX.Element[];
+  ]) => JSX.Element;
   items: [
     Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"],
     Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]["owner"],
