@@ -18,6 +18,7 @@
     "@redux-devtools/log-monitor": "5.1.1",
     "@redux-devtools/slider-monitor": "5.1.1",
     "@tailwindcss/vite": "4.0.17",
+    "@total-typescript/ts-reset": "0.6.1",
     "@types/humps": "2.0.6",
     "@types/lodash": "4.17.16",
     "@types/node": "22.13.14",
