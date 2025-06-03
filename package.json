@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "devDependencies": {
-    "@axe-core/playwright": "4.10.1",
+    "@axe-core/playwright": "4.10.2",
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
     "@commitlint/types": "19.8.1",
