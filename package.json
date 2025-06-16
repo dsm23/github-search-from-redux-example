@@ -36,6 +36,7 @@
     "globals": "16.2.0",
     "husky": "9.1.7",
     "lint-staged": "16.1.2",
+    "npm-run-all2": "8.0.4",
     "postcss": "8.5.6",
     "prettier": "3.5.3",
     "prettier-plugin-css-order": "2.1.2",
@@ -77,8 +78,9 @@
     "build": "tsc && vite build",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
-    "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
+    "lint:js": "eslint . --report-unused-disable-directives --max-warnings 0",
     "lint:css": "stylelint \"**/*.css\" --max-warnings 0 --allow-empty-input --cache --cache-strategy=content --cache-location=.stylelintcache",
+    "lint": "run-p lint:js lint:css",
     "preview": "vite preview"
   },
   "engines": {
