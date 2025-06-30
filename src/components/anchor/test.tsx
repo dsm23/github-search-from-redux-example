@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import Anchor from ".";
 
 describe("component", () => {
-  describe("Button", () => {
+  describe("Anchor", () => {
     it("should render correctly", () => {
       render(<Anchor href="#">Hello, World!</Anchor>);
 
