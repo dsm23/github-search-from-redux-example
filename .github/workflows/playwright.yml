@@ -41,7 +41,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Run Playwright tests
-        run: pnpm playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: pnpm exec playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
         env:
           # Required for firefox
           HOME: /root
