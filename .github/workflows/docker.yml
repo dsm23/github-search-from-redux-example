@@ -12,7 +12,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: "dsm23/github-search-from-redux-example"
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   amd64:
