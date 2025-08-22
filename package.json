@@ -14,7 +14,7 @@
     "@ianvs/prettier-plugin-sort-imports": "4.6.2",
     "@nabla/vite-plugin-eslint": "2.0.6",
     "@octokit/types": "14.1.0",
-    "@playwright/test": "1.54.2",
+    "@playwright/test": "1.55.0",
     "@redux-devtools/core": "4.1.1",
     "@redux-devtools/dock-monitor": "4.1.1",
     "@redux-devtools/log-monitor": "5.1.1",
