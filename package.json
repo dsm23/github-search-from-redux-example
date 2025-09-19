@@ -18,7 +18,7 @@
     "@redux-devtools/core": "4.1.1",
     "@redux-devtools/dock-monitor": "4.1.1",
     "@redux-devtools/log-monitor": "5.1.1",
-    "@redux-devtools/slider-monitor": "5.1.1",
+    "@redux-devtools/slider-monitor": "6.0.0",
     "@storybook/addon-a11y": "9.1.7",
     "@storybook/addon-docs": "9.1.7",
     "@storybook/addon-onboarding": "9.1.7",
