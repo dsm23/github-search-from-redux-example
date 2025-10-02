@@ -166,11 +166,11 @@ importers:
         specifier: 5.2.0
         version: 5.2.0(eslint@9.36.0(jiti@2.5.1))
       eslint-plugin-react-refresh:
-        specifier: 0.4.22
-        version: 0.4.22(eslint@9.36.0(jiti@2.5.1))
+        specifier: 0.4.23
+        version: 0.4.23(eslint@9.36.0(jiti@2.5.1))
       eslint-plugin-storybook:
-        specifier: 9.1.9
-        version: 9.1.9(eslint@9.36.0(jiti@2.5.1))(storybook@9.1.9(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.7(@types/node@22.18.8)(jiti@2.5.1)(lightningcss@1.30.1)(yaml@2.8.1)))(typescript@5.9.3)
+        specifier: 9.1.10
+        version: 9.1.10(eslint@9.36.0(jiti@2.5.1))(storybook@9.1.9(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.7(@types/node@22.18.8)(jiti@2.5.1)(lightningcss@1.30.1)(yaml@2.8.1)))(typescript@5.9.3)
       globals:
         specifier: 16.4.0
         version: 16.4.0
@@ -1985,17 +1985,17 @@ packages:
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
 
-  eslint-plugin-react-refresh@0.4.22:
-    resolution: {integrity: sha512-atkAG6QaJMGoTLc4MDAP+rqZcfwQuTIh2IqHWFLy2TEjxr0MOK+5BSG4RzL2564AAPpZkDRsZXAUz68kjnU6Ug==}
+  eslint-plugin-react-refresh@0.4.23:
+    resolution: {integrity: sha512-G4j+rv0NmbIR45kni5xJOrYvCtyD3/7LjpVH8MPPcudXDcNu8gv+4ATTDXTtbRR8rTCM5HxECvCSsRmxKnWDsA==}
     peerDependencies:
       eslint: '>=8.40'
 
-  eslint-plugin-storybook@9.1.9:
-    resolution: {integrity: sha512-2ZxaIR3ZfsBP4vqrC6fsCKM8pCbgTLRcBUm69g1yiJBKAbIHU8nQSsD6gpEPO3YFdRayGqzxnvwwWcXwtm5f5Q==}
+  eslint-plugin-storybook@9.1.10:
+    resolution: {integrity: sha512-HAVQ9HTMydcFj5KjnzsETOwPe19eIViwRBhc47lvU04YEFTgEg2rlXN1xozxHUlQ+XkkoKYkIUYoqo7KgGhkIA==}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       eslint: '>=8'
-      storybook: ^9.1.9
+      storybook: ^9.1.10
 
   eslint-scope@8.4.0:
     resolution: {integrity: sha512-sNXOfKCn74rt8RICKMvJS7XKV/Xk9kA7DyJr8mJik3S7Cwgy3qlkkmyS2uQB3jiJg6VNdZd/pDBJu0nvG2NlTg==}
@@ -5513,11 +5513,11 @@ snapshots:
     dependencies:
       eslint: 9.36.0(jiti@2.5.1)
 
-  eslint-plugin-react-refresh@0.4.22(eslint@9.36.0(jiti@2.5.1)):
+  eslint-plugin-react-refresh@0.4.23(eslint@9.36.0(jiti@2.5.1)):
     dependencies:
       eslint: 9.36.0(jiti@2.5.1)
 
-  eslint-plugin-storybook@9.1.9(eslint@9.36.0(jiti@2.5.1))(storybook@9.1.9(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.7(@types/node@22.18.8)(jiti@2.5.1)(lightningcss@1.30.1)(yaml@2.8.1)))(typescript@5.9.3):
+  eslint-plugin-storybook@9.1.10(eslint@9.36.0(jiti@2.5.1))(storybook@9.1.9(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.7(@types/node@22.18.8)(jiti@2.5.1)(lightningcss@1.30.1)(yaml@2.8.1)))(typescript@5.9.3):
     dependencies:
       '@typescript-eslint/utils': 8.45.0(eslint@9.36.0(jiti@2.5.1))(typescript@5.9.3)
       eslint: 9.36.0(jiti@2.5.1)
