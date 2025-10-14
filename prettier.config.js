@@ -30,7 +30,7 @@ const config = {
     ".css$",
   ],
   // renovate: datasource=npm depName=typescript
-  importOrderTypeScriptVersion: "5.7.3",
+  importOrderTypeScriptVersion: "5.9.3",
   tailwindFunctions: ["clsx", "cn", "cva", "cx"],
 };
 
