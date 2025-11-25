@@ -33,6 +33,6 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Unit & Integration tests
-        run: pnpm test --coverage --project unit
+        run: pnpm run test run --coverage --project unit
         env:
           FORCE_COLOR: 1
