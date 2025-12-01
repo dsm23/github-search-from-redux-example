@@ -6,7 +6,8 @@ import { cn } from "~/lib/utils";
 import { linkVariants } from "./variants";
 
 export interface ButtonProps
-  extends AnchorHTMLAttributes<HTMLAnchorElement>,
+  extends
+    AnchorHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof linkVariants> {
   asChild?: boolean;
 }
