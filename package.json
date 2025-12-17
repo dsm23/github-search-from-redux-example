@@ -30,7 +30,7 @@
     "@total-typescript/ts-reset": "0.6.1",
     "@types/humps": "2.0.6",
     "@types/lodash": "4.17.21",
-    "@types/node": "24.10.3",
+    "@types/node": "24.10.4",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "@types/redux-logger": "3.0.13",
