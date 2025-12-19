@@ -75,6 +75,7 @@ export default (store) => (next) => (action) => {
 
   const actionWith = (data) => {
     const finalAction = Object.assign({}, action, data);
+    // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
     delete finalAction[CALL_API];
     return finalAction;
   };
