@@ -12,6 +12,8 @@ export default defineConfig({
       formatter: "stylish",
     }),
     tailwindcss(),
-    tsconfigPaths(),
+    tsconfigPaths({
+      projectDiscovery: "lazy",
+    }),
   ],
 });
