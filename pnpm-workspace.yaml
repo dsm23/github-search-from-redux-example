@@ -1,0 +1,5 @@
+blockExoticSubdeps: true
+
+savePrefix: ""
+
+trustPolicy: no-downgrade
