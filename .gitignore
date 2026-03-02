@@ -16,7 +16,6 @@ dist-ssr
 .eslintcache
 .eslintmdcache
 .stylelintcache
-.prettiercache
 
 # Editor directories and files
 .vscode/*

@@ -3,9 +3,9 @@
 
 import { useEffect } from "react";
 import type { FunctionComponent } from "react";
-import zip from "lodash/zip";
 import { Link, useParams } from "react-router-dom";
 import type { Endpoints } from "@octokit/types";
+import zip from "lodash/zip";
 import { useAppDispatch, useAppSelector } from "~/app/hooks";
 import { buttonVariants } from "~/components/button";
 import GoBack from "~/components/GoBack";

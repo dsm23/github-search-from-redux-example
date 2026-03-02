@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import logger from "redux-logger";
 import type { Action, ThunkAction } from "@reduxjs/toolkit";
+import logger from "redux-logger";
 import DevTools from "~/containers/DevTools";
 import errorMessage from "~/features/error-message/slice";
 import api from "~/middleware/api";

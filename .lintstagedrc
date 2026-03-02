@@ -1,5 +1,5 @@
 {
-  "**/*.{js,mjs,ts,tsx}": ["eslint", "prettier --check"],
-  "**/*.css": ["stylelint --allow-empty-input", "prettier --check"],
-  "**/*.{md,json,yml}": ["prettier --check"]
+  "**/*.{js,mjs,ts,tsx}": ["eslint", "oxfmt --check"],
+  "**/*.css": ["stylelint --allow-empty-input", "oxfmt --check"],
+  "**/*.{md,json,yml}": ["oxfmt --check"]
 }

@@ -1,3 +1,5 @@
+import path from "node:path";
+import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import { playwright } from "@vitest/browser-playwright";
 import {
   coverageConfigDefaults,
@@ -5,8 +7,6 @@ import {
   defineConfig,
   mergeConfig,
 } from "vitest/config";
-import path from "node:path";
-import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import viteConfig from "./vite.config";
 
 export default mergeConfig(

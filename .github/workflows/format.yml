@@ -32,5 +32,5 @@ jobs:
       - name: Node setup
         uses: ./.github/actions/setup
 
-      - name: Prettier check
+      - name: Format check
         run: pnpm run fmt.check
