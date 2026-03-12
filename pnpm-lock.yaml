@@ -73,8 +73,8 @@ importers:
         specifier: 9.39.4
         version: 9.39.4
       '@fast-check/vitest':
-        specifier: 0.2.4
-        version: 0.2.4(vitest@4.0.18)
+        specifier: 0.3.0
+        version: 0.3.0(vitest@4.0.18)
       '@nabla/vite-plugin-eslint':
         specifier: 2.0.6
         version: 2.0.6(eslint@9.39.4(jiti@2.6.1))(vite@7.3.1(@types/node@24.10.4)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
@@ -826,8 +826,8 @@ packages:
       '@exodus/crypto':
         optional: true
 
-  '@fast-check/vitest@0.2.4':
-    resolution: {integrity: sha512-Ilcr+JAIPhb1s6FRm4qoglQYSGXXrS+zAupZeNuWAA3qHVGDA1d1Gb84Hb/+otL3GzVZjFJESg5/1SfIvrgssA==}
+  '@fast-check/vitest@0.3.0':
+    resolution: {integrity: sha512-mXxAu7DJtzwSUeOMecZibq/403b8uX1/dWWXXCBgb+j9ERWuN9Hvr6usId+9ivdQ+tJl8H6o+CMv71BmjaENRQ==}
     peerDependencies:
       vitest: ^1 || ^2 || ^3 || ^4
 
@@ -5501,7 +5501,7 @@ snapshots:
 
   '@exodus/bytes@1.7.0': {}
 
-  '@fast-check/vitest@0.2.4(vitest@4.0.18)':
+  '@fast-check/vitest@0.3.0(vitest@4.0.18)':
     dependencies:
       fast-check: 4.1.1
       vitest: 4.0.18(@types/node@24.10.4)(@vitest/browser-playwright@4.0.18)(jiti@2.6.1)(jsdom@27.4.0(postcss@8.5.8))(lightningcss@1.30.2)(yaml@2.8.1)
