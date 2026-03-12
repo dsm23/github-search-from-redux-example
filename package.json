@@ -13,7 +13,7 @@
     "@fast-check/vitest": "0.3.0",
     "@nabla/vite-plugin-eslint": "2.0.6",
     "@octokit/types": "16.0.0",
-    "@playwright/test": "1.57.0",
+    "@playwright/test": "1.58.2",
     "@redux-devtools/core": "4.1.1",
     "@redux-devtools/dock-monitor": "4.1.1",
     "@redux-devtools/log-monitor": "5.1.1",
