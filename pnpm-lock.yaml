@@ -88,8 +88,8 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1)
       '@redux-devtools/dock-monitor':
-        specifier: 4.1.1
-        version: 4.1.1(@redux-devtools/core@5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)
+        specifier: 5.0.0
+        version: 5.0.0(@redux-devtools/core@5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)
       '@redux-devtools/log-monitor':
         specifier: 5.1.1
         version: 5.1.1(@redux-devtools/core@5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)
@@ -1085,10 +1085,10 @@ packages:
       react-redux: ^7.0.0 || ^8.0.0 || ^9.0.0
       redux: ^3.5.2 || ^4.0.0 || ^5.0.0
 
-  '@redux-devtools/dock-monitor@4.1.1':
-    resolution: {integrity: sha512-q2tf/MylKWTZCoo+05VY3SyYFmaoXdB0ItBDrUvmxlxAAetYW9n699+GDdFBOr7XMVy2sVUq8nZCSdrWJhjw6Q==}
+  '@redux-devtools/dock-monitor@5.0.0':
+    resolution: {integrity: sha512-79b3dAFb3wbM3q3jrwytvZ15USJRDDrgmbVjKnahnZMYkMlNLhghLIP4vQcq6YkDBGqQ3Vc0bNliF/h2b/KWsA==}
     peerDependencies:
-      '@redux-devtools/core': ^4.1.1
+      '@redux-devtools/core': ^5.0.0
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react: ^16.8.4 || ^17.0.0 || ^18.0.0 || ^19.0.0
       redux: ^3.4.0 || ^4.0.0 || ^5.0.0
@@ -5471,9 +5471,8 @@ snapshots:
       react-redux: 9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)
       redux: 5.0.1
 
-  '@redux-devtools/dock-monitor@4.1.1(@redux-devtools/core@5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)':
+  '@redux-devtools/dock-monitor@5.0.0(@redux-devtools/core@5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)':
     dependencies:
-      '@babel/runtime': 7.28.6
       '@redux-devtools/core': 5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1)
       '@types/react': 19.2.14
       parse-key: 0.2.1
