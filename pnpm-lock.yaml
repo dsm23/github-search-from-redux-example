@@ -85,17 +85,17 @@ importers:
         specifier: 1.58.2
         version: 1.58.2
       '@redux-devtools/core':
-        specifier: 4.1.1
-        version: 4.1.1(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1)
+        specifier: 5.0.0
+        version: 5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1)
       '@redux-devtools/dock-monitor':
         specifier: 4.1.1
-        version: 4.1.1(@redux-devtools/core@4.1.1(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)
+        version: 4.1.1(@redux-devtools/core@5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)
       '@redux-devtools/log-monitor':
         specifier: 5.1.1
-        version: 5.1.1(@redux-devtools/core@4.1.1(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)
+        version: 5.1.1(@redux-devtools/core@5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)
       '@redux-devtools/slider-monitor':
         specifier: 6.0.0
-        version: 6.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.2.4))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.2.4))(@types/react@19.2.14)(react@19.2.4))(@redux-devtools/core@4.1.1(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(redux@5.0.1)
+        version: 6.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.2.4))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.2.4))(@types/react@19.2.14)(react@19.2.4))(@redux-devtools/core@5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(redux@5.0.1)
       '@storybook/addon-a11y':
         specifier: 10.2.19
         version: 10.2.19(storybook@10.2.19(@testing-library/dom@10.4.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
@@ -1078,8 +1078,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@redux-devtools/core@4.1.1':
-    resolution: {integrity: sha512-ZyyJwiHX4DFDU0llk45tYSFPoIMekdoKLz0Q7soowpNOtchvTxruQx4Xy//Cohkwsw+DH8W1amdo4C/NYT6ARA==}
+  '@redux-devtools/core@5.0.0':
+    resolution: {integrity: sha512-APUYUtMsc7ZJS54HP8mC20XVfliXlWwUa4aQyaE6kuQhezLvcVj5dib88QsqmXJzXGxjI4xFnXxl1WgYNa8ycQ==}
     peerDependencies:
       react: ^16.8.4 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-redux: ^7.0.0 || ^8.0.0 || ^9.0.0
@@ -1093,8 +1093,8 @@ packages:
       react: ^16.8.4 || ^17.0.0 || ^18.0.0 || ^19.0.0
       redux: ^3.4.0 || ^4.0.0 || ^5.0.0
 
-  '@redux-devtools/instrument@2.2.0':
-    resolution: {integrity: sha512-HKaL+ghBQ4ZQkM/kEQIKx8dNwz4E1oeiCDfdQlpPXxEi/BrisyrFFncAXb1y2HIJsLV9zSvQUR2jRtMDWgfi8w==}
+  '@redux-devtools/instrument@3.0.0':
+    resolution: {integrity: sha512-f2PT0ZiwbpdpSNLPzozx7S2yiNgBJPWly7yTxFctCRMEU8jdkrW9TQbCYNdP+Cfj/VELEd7+qzNhGPsX9erdrQ==}
     peerDependencies:
       redux: ^3.4.0 || ^4.0.0 || ^5.0.0
 
@@ -5464,34 +5464,31 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.2.14
 
-  '@redux-devtools/core@4.1.1(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1)':
+  '@redux-devtools/core@5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1)':
     dependencies:
-      '@babel/runtime': 7.28.6
-      '@redux-devtools/instrument': 2.2.0(redux@5.0.1)
+      '@redux-devtools/instrument': 3.0.0(redux@5.0.1)
       react: 19.2.4
       react-redux: 9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)
       redux: 5.0.1
 
-  '@redux-devtools/dock-monitor@4.1.1(@redux-devtools/core@4.1.1(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)':
+  '@redux-devtools/dock-monitor@4.1.1(@redux-devtools/core@5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)':
     dependencies:
       '@babel/runtime': 7.28.6
-      '@redux-devtools/core': 4.1.1(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1)
+      '@redux-devtools/core': 5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1)
       '@types/react': 19.2.14
       parse-key: 0.2.1
       react: 19.2.4
       react-dock: 0.8.0(@types/react@19.2.14)(react@19.2.4)
       redux: 5.0.1
 
-  '@redux-devtools/instrument@2.2.0(redux@5.0.1)':
+  '@redux-devtools/instrument@3.0.0(redux@5.0.1)':
     dependencies:
-      '@babel/runtime': 7.28.6
-      lodash: 4.17.23
       redux: 5.0.1
 
-  '@redux-devtools/log-monitor@5.1.1(@redux-devtools/core@4.1.1(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)':
+  '@redux-devtools/log-monitor@5.1.1(@redux-devtools/core@5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1)':
     dependencies:
       '@babel/runtime': 7.28.6
-      '@redux-devtools/core': 4.1.1(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1)
+      '@redux-devtools/core': 5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1)
       '@types/lodash.debounce': 4.0.9
       '@types/react': 19.2.14
       lodash.debounce: 4.0.8
@@ -5500,12 +5497,12 @@ snapshots:
       react-json-tree: 0.20.0(@types/react@19.2.14)(react@19.2.4)
       redux: 5.0.1
 
-  '@redux-devtools/slider-monitor@6.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.2.4))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.2.4))(@types/react@19.2.14)(react@19.2.4))(@redux-devtools/core@4.1.1(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(redux@5.0.1)':
+  '@redux-devtools/slider-monitor@6.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.2.4))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.2.4))(@types/react@19.2.14)(react@19.2.4))(@redux-devtools/core@5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(redux@5.0.1)':
     dependencies:
       '@babel/runtime': 7.28.6
       '@emotion/react': 11.14.0(@types/react@19.2.14)(react@19.2.4)
       '@emotion/styled': 11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.2.4))(@types/react@19.2.14)(react@19.2.4)
-      '@redux-devtools/core': 4.1.1(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1)
+      '@redux-devtools/core': 5.0.0(react-redux@9.2.0(@types/react@19.2.14)(react@19.2.4)(redux@5.0.1))(react@19.2.4)(redux@5.0.1)
       '@redux-devtools/ui': 2.0.0(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.2.4))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@19.2.14)(react@19.2.4))(@types/react@19.2.14)(react@19.2.4))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@types/react': 19.2.14
       react: 19.2.4
