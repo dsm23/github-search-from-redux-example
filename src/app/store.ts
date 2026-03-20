@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import type { Action, ThunkAction } from "@reduxjs/toolkit";
-import logger from "redux-logger";
+import { createLogger } from "redux-logger";
 import DevTools from "~/containers/DevTools";
 import errorMessage from "~/features/error-message/slice";
 import api from "~/middleware/api";
@@ -10,6 +10,10 @@ const rootReducer = combineReducers({
   entities,
   pagination,
   errorMessage,
+});
+
+const logger = createLogger({
+  collapsed: true,
 });
 
 export function setupStore(preloadedState?: Partial<RootState>) {
