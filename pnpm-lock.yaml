@@ -27,8 +27,8 @@ importers:
         specifier: 2.0.1
         version: 2.0.1
       lodash:
-        specifier: 4.17.23
-        version: 4.17.23
+        specifier: 4.18.1
+        version: 4.18.1
       normalizr:
         specifier: 3.6.2
         version: 3.6.2
@@ -3207,8 +3207,8 @@ packages:
   lodash.upperfirst@4.3.1:
     resolution: {integrity: sha512-sReKOYJIJf74dhJONhU4e0/shzi1trVbSWDOhKYE5XV2O+H7Sb2Dihwuc7xWxVl+DgFPyTqIN3zMfT9cq5iWDg==}
 
-  lodash@4.17.23:
-    resolution: {integrity: sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w==}
+  lodash@4.18.1:
+    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
   log-update@6.1.0:
     resolution: {integrity: sha512-9ie8ItPR6tjY5uYJh8K/Zrv/RMZ5VOlOWvtZdEHYSTFKZfIBPQa9tOAEeAWhd+AnIneLJ22w5fjOYtoutpWq5w==}
@@ -5639,7 +5639,7 @@ snapshots:
   '@rjsf/core@6.4.2(@rjsf/utils@6.4.2(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@rjsf/utils': 6.4.2(react@19.2.4)
-      lodash: 4.17.23
+      lodash: 4.18.1
       lodash-es: 4.17.23
       markdown-to-jsx: 8.0.0(react@19.2.4)
       prop-types: 15.8.1
@@ -5650,7 +5650,7 @@ snapshots:
       '@x0k/json-schema-merge': 1.0.2
       fast-uri: 3.1.0
       jsonpointer: 5.0.1
-      lodash: 4.17.23
+      lodash: 4.18.1
       lodash-es: 4.17.23
       react: 19.2.4
       react-is: 18.3.1
@@ -5660,7 +5660,7 @@ snapshots:
       '@rjsf/utils': 6.4.2(react@19.2.4)
       ajv: 8.18.0
       ajv-formats: 2.1.1(ajv@8.18.0)
-      lodash: 4.17.23
+      lodash: 4.18.1
       lodash-es: 4.17.23
 
   '@rolldown/binding-android-arm64@1.0.0-rc.12':
@@ -7802,7 +7802,7 @@ snapshots:
 
   lodash.upperfirst@4.3.1: {}
 
-  lodash@4.17.23: {}
+  lodash@4.18.1: {}
 
   log-update@6.1.0:
     dependencies:
@@ -9032,7 +9032,7 @@ snapshots:
 
   stylelint-selector-bem-pattern@4.0.1(stylelint@17.6.0(typescript@6.0.2)):
     dependencies:
-      lodash: 4.17.23
+      lodash: 4.18.1
       postcss: 8.5.8
       postcss-bem-linter: 4.0.1(postcss@8.5.8)
       stylelint: 17.6.0(typescript@6.0.2)
