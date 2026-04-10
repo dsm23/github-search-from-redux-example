@@ -28,6 +28,9 @@ dist-ssr
 *.sln
 *.sw?
 
+# lefthook
+lefthook-local.yml
+
 # coverage
 coverage/
 

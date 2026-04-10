@@ -1,5 +1,0 @@
-{
-  "**/*.{js,mjs,ts,tsx}": ["eslint", "oxfmt --check"],
-  "**/*.css": ["stylelint --allow-empty-input", "oxfmt --check"],
-  "**/*.{md,json,yml}": ["oxfmt --check"]
-}

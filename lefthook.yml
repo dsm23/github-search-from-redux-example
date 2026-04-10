@@ -1,0 +1,22 @@
+pre-commit:
+  parallel: true
+  commands:
+    oxfmt:
+      run: ./node_modules/.bin/oxfmt --check --no-error-on-unmatched-pattern {staged_files}
+
+    stylelint:
+      run: ./node_modules/.bin/stylelint --allow-empty-input {staged_files}
+      glob: "*.css"
+
+    oxlint:
+      run: ./node_modules/.bin/oxlint {staged_files}
+      glob:
+        - "*.ts"
+        - "*.js"
+        - "*.tsx"
+        - "*.jsx"
+
+commit-msg:
+  commands:
+    commitlint:
+      run: ./node_modules/.bin/commitlint --edit {1}
