@@ -15,6 +15,7 @@ export const entities = (state = { users: {}, repos: {} }, action) => {
 };
 
 // Updates error message to notify about the failed fetches.
+/* @knipignore */
 export const errorMessage = (state = null, action) => {
   const { type, error } = action;
 

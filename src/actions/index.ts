@@ -3,9 +3,9 @@
 import { Schemas } from "~/app/schemas";
 import { CALL_API } from "../middleware/api";
 
-export const USER_REQUEST = "USER_REQUEST";
-export const USER_SUCCESS = "USER_SUCCESS";
-export const USER_FAILURE = "USER_FAILURE";
+const USER_REQUEST = "USER_REQUEST";
+const USER_SUCCESS = "USER_SUCCESS";
+const USER_FAILURE = "USER_FAILURE";
 
 // Fetches a single user from Github API.
 // Relies on the custom API middleware defined in ../middleware/api.js.
@@ -35,9 +35,9 @@ export const loadUser =
     return dispatch(fetchUser(login));
   };
 
-export const REPO_REQUEST = "REPO_REQUEST";
-export const REPO_SUCCESS = "REPO_SUCCESS";
-export const REPO_FAILURE = "REPO_FAILURE";
+const REPO_REQUEST = "REPO_REQUEST";
+const REPO_SUCCESS = "REPO_SUCCESS";
+const REPO_FAILURE = "REPO_FAILURE";
 
 // Fetches a single repository from Github API.
 // Relies on the custom API middleware defined in ../middleware/api.js.
@@ -128,6 +128,7 @@ export const loadStargazers = (fullName, nextPage) => (dispatch, getState) => {
 export const RESET_ERROR_MESSAGE = "RESET_ERROR_MESSAGE";
 
 // Resets the currently visible error message.
+/* @knipignore */
 export const resetErrorMessage = () => ({
   type: RESET_ERROR_MESSAGE,
 });
