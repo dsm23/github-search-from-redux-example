@@ -1,5 +1,4 @@
 import { defineConfig } from "vite";
-import eslint from "@nabla/vite-plugin-eslint";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 
@@ -8,11 +7,5 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
-  plugins: [
-    react(),
-    eslint({
-      formatter: "stylish",
-    }),
-    tailwindcss(),
-  ],
+  plugins: [react(), tailwindcss()],
 });

@@ -11,7 +11,7 @@ const GoBack: FunctionComponent<Props> = ({ className, ...props }) => (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className={cn("h-4 w-4", className)}
+    className={cn("size-4", className)}
   >
     <path
       strokeLinecap="round"

@@ -14,7 +14,7 @@ const App: FunctionComponent = () => {
   const dispatch = useAppDispatch();
   const errorMessage = useAppSelector(errorMessageSelector);
 
-  const inputValue = location.pathname.substring(1);
+  const inputValue = location.pathname.slice(1);
 
   const handleDismissClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     dispatch(resetErrorMessage());
