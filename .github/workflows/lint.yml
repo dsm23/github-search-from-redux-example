@@ -34,3 +34,6 @@ jobs:
 
       - name: Lint check
         run: pnpm run lint
+
+      - name: Lint Unused Dependencies
+        run: pnpm exec knip

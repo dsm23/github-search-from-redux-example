@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { Action } from "@reduxjs/toolkit";
 
-export type ErrorState = {
+type ErrorState = {
   value: string | Error | null;
 };
 
@@ -17,7 +17,7 @@ function isRejectedAction(action: Action): action is RejectedAction {
   return action.type.endsWith("FAILURE");
 }
 
-export const errorMessageSlice = createSlice({
+const errorMessageSlice = createSlice({
   name: "errorMessage",
   initialState,
   reducers: {

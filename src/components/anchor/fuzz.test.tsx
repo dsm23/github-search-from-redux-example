@@ -1,7 +1,8 @@
 import { describe, expect } from "vitest";
 import crypto from "node:crypto";
 import { fc, it } from "@fast-check/vitest";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { render } from "~/test-utils/render";
 import Anchor from ".";
 
 describe("component", () => {

@@ -5,7 +5,7 @@ import type { VariantProps } from "class-variance-authority";
 import { cn } from "~/lib/utils";
 import { linkVariants } from "./variants";
 
-export interface ButtonProps
+interface ButtonProps
   extends
     AnchorHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof linkVariants> {
