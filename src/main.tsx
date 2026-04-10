@@ -4,7 +4,7 @@ import App from "./App.tsx";
 
 import "./index.css";
 
-createRoot(document.getElementById("root") as HTMLDivElement).render(
+createRoot(document.querySelector("#root") as HTMLElement).render(
   <StrictMode>
     <App />
   </StrictMode>,

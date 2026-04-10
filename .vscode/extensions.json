@@ -5,7 +5,6 @@
   // List of extensions which should be recommended for users of this workspace.
   "recommendations": [
     "bradlc.vscode-tailwindcss",
-    "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
     "jasonnutter.vscode-codeowners",
     "joshbolduc.commitlint",
