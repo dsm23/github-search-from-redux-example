@@ -3,7 +3,7 @@ import crypto from "node:crypto";
 import { fc, it } from "@fast-check/vitest";
 import { screen } from "@testing-library/react";
 import { render } from "~/test-utils/render";
-import Anchor from ".";
+import Anchor, { linkVariants } from ".";
 
 describe("component", () => {
   describe("Anchor", () => {
@@ -28,9 +28,9 @@ describe("component", () => {
           const id = crypto.randomUUID();
 
           render(
-            <Anchor href="#" asChild>
-              <button data-testid={id}>{linkText}</button>
-            </Anchor>,
+            <button className={linkVariants()} data-testid={id}>
+              {linkText}
+            </button>,
           );
 
           expect(screen.getByTestId(id)).toBeInTheDocument();

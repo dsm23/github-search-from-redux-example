@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
-import Button from ".";
+import { Button } from ".";
 
 const meta = {
   title: "Components/Shadcn/Button",
@@ -12,15 +12,15 @@ const meta = {
     variant: "default",
     children: "Button",
     size: "lg",
-    onClick: fn(),
+    onClick: fn<() => void>(),
   },
   argTypes: {
     variant: {
       options: [
         "default",
+        "secondary",
         "destructive",
         "outline",
-        "secondary",
         "ghost",
         "link",
       ],
@@ -37,6 +37,41 @@ const meta = {
 type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
+  render: (args) => <Button {...args} />,
+};
+
+export const Secondary: Story = {
+  args: {
+    variant: "secondary",
+  },
+  render: (args) => <Button {...args} />,
+};
+
+export const Destructive: Story = {
+  args: {
+    variant: "destructive",
+  },
+  render: (args) => <Button {...args} />,
+};
+
+export const Outline: Story = {
+  args: {
+    variant: "outline",
+  },
+  render: (args) => <Button {...args} />,
+};
+
+export const Ghost: Story = {
+  args: {
+    variant: "ghost",
+  },
+  render: (args) => <Button {...args} />,
+};
+
+export const Link: Story = {
+  args: {
+    variant: "link",
+  },
   render: (args) => <Button {...args} />,
 };
 

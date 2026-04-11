@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { screen } from "@testing-library/react";
 import { render } from "~/test-utils/render";
-import Anchor from ".";
+import Anchor, { linkVariants } from ".";
 
 describe("component", () => {
   describe("Anchor", () => {
@@ -12,11 +12,7 @@ describe("component", () => {
     });
 
     it("should render correctly, asChild", () => {
-      render(
-        <Anchor asChild>
-          <button>Hello, World!</button>
-        </Anchor>,
-      );
+      render(<button className={linkVariants()}>Hello, World!</button>);
 
       expect(screen.getByRole("button")).toBeInTheDocument();
     });

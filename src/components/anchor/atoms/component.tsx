@@ -1,25 +1,16 @@
-import { forwardRef } from "react";
-import type { AnchorHTMLAttributes } from "react";
-import { Slot } from "@radix-ui/react-slot";
+import type { AnchorHTMLAttributes, FunctionComponent } from "react";
 import type { VariantProps } from "class-variance-authority";
 import { cn } from "~/lib/utils";
 import { linkVariants } from "./variants";
 
-interface ButtonProps
+interface AnchorProps
   extends
     AnchorHTMLAttributes<HTMLAnchorElement>,
-    VariantProps<typeof linkVariants> {
-  asChild?: boolean;
-}
+    VariantProps<typeof linkVariants> {}
 
-const Anchor = forwardRef<HTMLAnchorElement, ButtonProps>(
-  ({ className, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "a";
-    return (
-      <Comp className={cn(linkVariants(), className)} ref={ref} {...props} />
-    );
-  },
-);
+const Anchor: FunctionComponent<AnchorProps> = ({ className, ...props }) => {
+  return <a className={cn(linkVariants(), className)} {...props} />;
+};
 
 Anchor.displayName = "Anchor";
 
