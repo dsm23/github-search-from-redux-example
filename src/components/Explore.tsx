@@ -5,9 +5,9 @@ import type {
   FunctionComponent,
 } from "react";
 import Anchor from "./anchor";
-import Button from "./button";
-import { Input } from "./Input";
-import { Label } from "./Label";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
 
 type Props = {
   value: string;
