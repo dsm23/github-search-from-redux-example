@@ -45,7 +45,7 @@
     "oxlint": "1.61.0",
     "oxlint-tsgolint": "0.21.1",
     "redux-logger": "3.0.6",
-    "shadcn": "4.3.1",
+    "shadcn": "4.4.0",
     "storybook": "10.3.5",
     "stylelint": "17.8.0",
     "stylelint-config-standard": "40.0.0",
