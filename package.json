@@ -9,7 +9,7 @@
     "@commitlint/cli": "20.5.2",
     "@commitlint/config-conventional": "20.5.0",
     "@commitlint/types": "20.5.0",
-    "@fast-check/vitest": "0.4.0",
+    "@fast-check/vitest": "0.4.1",
     "@octokit/types": "16.0.0",
     "@playwright/test": "1.59.1",
     "@redux-devtools/core": "5.0.0",
