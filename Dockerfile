@@ -2,7 +2,7 @@
 
 # Stage 1: Base image for dependencies and build
 FROM node:24.15.0-alpine@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f AS base
-FROM dhi.io/nginx:1.30.0-alpine3.23@sha256:447db2d0628b7680558b4f303802ccabfacdc6d41fb96f98c9228c1f3fd5c4d0 AS hardened
+FROM dhi.io/nginx:1.30.0-alpine3.23@sha256:8f238cd9e7b9b5e1bc578c3a612915a18abe5aed71962583465208840f0bec3d AS hardened
 
 # corepack is broken https://github.com/nodejs/corepack/issues/612
 # corepack was fixed but is will be removed from node from v25+
