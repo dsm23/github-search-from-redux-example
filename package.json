@@ -11,7 +11,7 @@
     "@commitlint/types": "21.0.1",
     "@fast-check/vitest": "0.4.1",
     "@octokit/types": "16.0.0",
-    "@playwright/test": "1.59.1",
+    "@playwright/test": "1.60.0",
     "@redux-devtools/core": "5.0.0",
     "@redux-devtools/dock-monitor": "5.0.0",
     "@redux-devtools/log-monitor": "6.0.0",
