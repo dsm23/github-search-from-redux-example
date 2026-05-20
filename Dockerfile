@@ -1,7 +1,7 @@
 # syntax=docker.io/docker/dockerfile:1@sha256:2780b5c3bab67f1f76c781860de469442999ed1a0d7992a5efdf2cffc0e3d769
 
 FROM ghcr.io/pnpm/pnpm:11.1.2 AS base
-FROM nginx:1.31.0-alpine-slim@sha256:9e666aeefa9801445bc2ff4994c48d314736dae4cf1f551ace03e38ea0373552 AS runtime
+FROM nginx:1.31.0-alpine-slim@sha256:241b0d0fe06250e026e7a35a008d022c9a1d3bec19442d65cc33b84d0b5dd64d AS runtime
 
 # renovate: datasource=node-version depName=node
 ARG NODE_VERSION="26.1.0"
