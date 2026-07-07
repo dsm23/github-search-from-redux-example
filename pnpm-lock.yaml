@@ -142,8 +142,8 @@ importers:
         specifier: 17.4.2
         version: 17.4.2
       eslint-plugin-better-tailwindcss:
-        specifier: 4.6.0
-        version: 4.6.0(eslint@10.6.0(jiti@2.7.0))(oxlint@1.69.0(oxlint-tsgolint@0.24.0))(tailwindcss@4.3.2)(typescript@6.0.3)
+        specifier: 4.6.1
+        version: 4.6.1(eslint@10.6.0(jiti@2.7.0))(oxlint@1.69.0(oxlint-tsgolint@0.24.0))(tailwindcss@4.3.2)(typescript@6.0.3)
       eslint-plugin-storybook:
         specifier: 10.4.6
         version: 10.4.6(eslint@10.6.0(jiti@2.7.0))(storybook@10.4.6(@testing-library/dom@10.4.1)(@types/react@19.2.17)(react@19.2.7))(typescript@6.0.3)
@@ -172,8 +172,8 @@ importers:
         specifier: 3.0.6
         version: 3.0.6
       shadcn:
-        specifier: 4.12.0
-        version: 4.12.0(babel-plugin-macros@3.1.0)(typescript@6.0.3)
+        specifier: 4.13.0
+        version: 4.13.0(babel-plugin-macros@3.1.0)(typescript@6.0.3)
       storybook:
         specifier: 10.4.6
         version: 10.4.6(@testing-library/dom@10.4.1)(@types/react@19.2.17)(react@19.2.7)
@@ -2972,8 +2972,8 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  eslint-plugin-better-tailwindcss@4.6.0:
-    resolution: {integrity: sha512-Xeh/6KzLeays6jXSqTKx6iCdJL1qo5ant/mAabbz7dJqADYebKUUPR2zXp1xuiqqJ3HIm+MN+Ql2m4Jp0BxkMQ==}
+  eslint-plugin-better-tailwindcss@4.6.1:
+    resolution: {integrity: sha512-Lr8mPyuaZ+dS6ATuJaPwcOFOpOUsRBs5TXyOPqiTzLy0SvK4+0G6usbklCuQn4QabwFtNKdSXwl2WxOIPvu0lQ==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=23.0.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
@@ -4412,8 +4412,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shadcn@4.12.0:
-    resolution: {integrity: sha512-o781ieQziCnXH2FKsEqxp1fnbHdbgAPO9inTSPeZ59hQfsZXuMGp3ul8oFSV5KQS4nbUK9b+DrDE6C7OvfKKQQ==}
+  shadcn@4.13.0:
+    resolution: {integrity: sha512-5fuJ4jI/GcPeA/iTL4cJivCZuYQGXz/N3bIzyd+Gd/FM6xUCy2MxGG+LaDQuw2cjNy9zGPSFPTEmI048UwPTZA==}
     engines: {node: '>=20.18.1'}
     hasBin: true
 
@@ -7581,7 +7581,7 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-plugin-better-tailwindcss@4.6.0(eslint@10.6.0(jiti@2.7.0))(oxlint@1.69.0(oxlint-tsgolint@0.24.0))(tailwindcss@4.3.2)(typescript@6.0.3):
+  eslint-plugin-better-tailwindcss@4.6.1(eslint@10.6.0(jiti@2.7.0))(oxlint@1.69.0(oxlint-tsgolint@0.24.0))(tailwindcss@4.3.2)(typescript@6.0.3):
     dependencies:
       '@eslint/css-tree': 4.0.4
       '@valibot/to-json-schema': 1.7.1(valibot@1.4.2(typescript@6.0.3))
@@ -9070,7 +9070,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shadcn@4.12.0(babel-plugin-macros@3.1.0)(typescript@6.0.3):
+  shadcn@4.13.0(babel-plugin-macros@3.1.0)(typescript@6.0.3):
     dependencies:
       '@babel/core': 7.29.7
       '@babel/parser': 7.29.7
