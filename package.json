@@ -55,7 +55,7 @@
     "typed-query-selector": "2.12.2",
     "typescript": "6.0.3",
     "vite": "8.1.5",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   },
   "dependencies": {
     "@base-ui/react": "1.6.0",
